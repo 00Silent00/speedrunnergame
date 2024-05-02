@@ -11,7 +11,16 @@ public class Pmovement : MonoBehaviour
     public float HorizontalSpeed;
     public float VerticalSpeed;
     public bool IsOnGround = true;
+    bool Jumpable = true;
     public float GravityMod;
+    float walkingSpeed = 60;
+    float runningSpeed = 90;
+    public float sensitivity = 10;
+    public float jumpForce;
+    public GameObject JumpObject;
+    public float jumprad;
+    float mousex;
+    float mousey;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,27 +31,55 @@ public class Pmovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround)
-        {
-            RB.AddForce(Vector3.up * 10, ForceMode.Impulse);
-            IsOnGround = false;
-        }
+        Jumping();
         HorizontalSpeed = Input.GetAxis("Horizontal");
         VerticalSpeed = Input.GetAxis("Vertical");
-        RB.AddForce(Vector3.right * HorizontalSpeed * Time.fixedDeltaTime * speed, ForceMode.VelocityChange);
-        RB.AddForce(Vector3.forward * VerticalSpeed * Time.fixedDeltaTime * speed,  ForceMode.VelocityChange);
-        RB.drag = IsOnGround ? 15 : 0.01f;
-
         if (IsOnGround == false)
         {
             speed = 0;
+        }else if(Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = runningSpeed;
         }else
         {
-            speed = 10;
+            speed = walkingSpeed;
         }
+        RB.AddForce(transform.right * HorizontalSpeed * Time.fixedDeltaTime * speed, ForceMode.VelocityChange);
+        RB.AddForce(transform.forward * VerticalSpeed * Time.fixedDeltaTime * speed,  ForceMode.VelocityChange);
+
+        mousex = Input.GetAxis("Mouse X");
+        mousey = Input.GetAxis("Mouse Y");
+        transform.Rotate(0, mousex * Time.deltaTime * sensitivity, 0);
+
+ 
+
+
+        
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-        IsOnGround = true;
+    void FixedUpdate()
+    {}
+
+    void Jumping(){
+        IsOnGround = false;
+        foreach(Collider i in Physics.OverlapSphere(JumpObject.transform.position, jumprad)){
+            if(i.transform.tag != "Player"){
+                IsOnGround = true;
+                break;
+            }
+        }
+        if(IsOnGround){
+            if(Input.GetKeyDown(KeyCode.Space) && Jumpable == true){
+                StartCoroutine(JumpDelay());
+                RB.AddForce(transform.up * jumpForce, ForceMode.VelocityChange);
+            }
+        }
+
+        RB.drag = IsOnGround ? 15 : 0.1f;
+
+    }
+    IEnumerator JumpDelay(){
+        Jumpable = false;
+        yield return new WaitForSeconds(0.1f);
+        Jumpable = true;
     }
 }
