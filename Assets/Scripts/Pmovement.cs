@@ -7,7 +7,7 @@ using UnityEngine;
 public class Pmovement : MonoBehaviour
 {
     public Rigidbody RB;
-    public float speed = 2;
+    public float speed;
     public float HorizontalSpeed;
     public float VerticalSpeed;
     public bool IsOnGround = true;
@@ -44,12 +44,13 @@ public class Pmovement : MonoBehaviour
         {
             speed = walkingSpeed;
         }
-        RB.AddForce(transform.right * HorizontalSpeed * Time.fixedDeltaTime * speed, ForceMode.VelocityChange);
-        RB.AddForce(transform.forward * VerticalSpeed * Time.fixedDeltaTime * speed,  ForceMode.VelocityChange);
+        RB.AddForce(transform.right * HorizontalSpeed * Time.deltaTime * speed, ForceMode.VelocityChange);
+        RB.AddForce(transform.forward * VerticalSpeed * Time.deltaTime * speed,  ForceMode.VelocityChange);
 
         mousex = Input.GetAxis("Mouse X");
         mousey = Input.GetAxis("Mouse Y");
         transform.Rotate(0, mousex * Time.deltaTime * sensitivity, 0);
+        Debug.Log(RB.drag);
 
  
 
