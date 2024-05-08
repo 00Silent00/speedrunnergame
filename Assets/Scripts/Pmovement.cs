@@ -13,8 +13,8 @@ public class Pmovement : MonoBehaviour
     public bool IsOnGround = true;
     bool Jumpable = true;
     public float GravityMod;
-    float walkingSpeed = 60;
-    float runningSpeed = 90;
+    public float walkingSpeed = 60;
+    public float runningSpeed = 90;
     public float sensitivity = 10;
     public float jumpForce;
     public GameObject JumpObject;
@@ -75,7 +75,7 @@ public class Pmovement : MonoBehaviour
             }
         }
 
-        RB.drag = IsOnGround ? 15 : 0.1f;
+        RB.drag = IsOnGround ? 10 : 0.1f;
 
     }
     IEnumerator JumpDelay(){
