@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84057a9a5be26cb439fdea5fa6f7cc19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xAxis: 105
-  yAxis: 3.5
-  zAxis: -19
+  xAxis: 0
+  yAxis: 0
+  zAxis: 0
 --- !u!1 &5651823428336622224
 GameObject:
   m_ObjectHideFlags: 0
