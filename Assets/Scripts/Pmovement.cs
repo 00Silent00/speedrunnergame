@@ -21,11 +21,12 @@ public class Pmovement : MonoBehaviour
     public float jumprad;
     float mousex;
     float mousey;
+    Vector3 spawnpoint;
     // Start is called before the first frame update
     void Start()
     {
         Physics.gravity *= GravityMod;
-        
+        spawnpoint = transform.position;
     }
 
     // Update is called once per frame
@@ -52,9 +53,10 @@ public class Pmovement : MonoBehaviour
         transform.Rotate(0, mousex * Time.deltaTime * sensitivity, 0);
         Debug.Log(RB.drag);
 
- 
-
-
+        if (transform.position.y < -5)
+        {
+            transform.position = spawnpoint;
+        }
         
     }
     void FixedUpdate()
@@ -83,4 +85,12 @@ public class Pmovement : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         Jumpable = true;
     }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("spawnpoint"))
+        {
+            spawnpoint = transform.position;
+        }
+    }
+
 }
