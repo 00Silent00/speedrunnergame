@@ -701,6 +701,14 @@ PrefabInstance:
       propertyPath: xAxis
       value: 201
       objectReference: {fileID: 0}
+    - target: {fileID: 3150132862804836801, guid: 826d6cba70eaddc4a85093c11a07ebc2, type: 3}
+      propertyPath: yAxis
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150132862804836801, guid: 826d6cba70eaddc4a85093c11a07ebc2, type: 3}
+      propertyPath: zAxis
+      value: -19
+      objectReference: {fileID: 0}
     - target: {fileID: 9052887043925360345, guid: 826d6cba70eaddc4a85093c11a07ebc2, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -1734,6 +1742,18 @@ PrefabInstance:
     - target: {fileID: 1837691090569135272, guid: 826d6cba70eaddc4a85093c11a07ebc2, type: 3}
       propertyPath: m_Name
       value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150132862804836801, guid: 826d6cba70eaddc4a85093c11a07ebc2, type: 3}
+      propertyPath: xAxis
+      value: 105
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150132862804836801, guid: 826d6cba70eaddc4a85093c11a07ebc2, type: 3}
+      propertyPath: yAxis
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150132862804836801, guid: 826d6cba70eaddc4a85093c11a07ebc2, type: 3}
+      propertyPath: zAxis
+      value: -19
       objectReference: {fileID: 0}
     - target: {fileID: 9052887043925360345, guid: 826d6cba70eaddc4a85093c11a07ebc2, type: 3}
       propertyPath: m_LocalPosition.x
