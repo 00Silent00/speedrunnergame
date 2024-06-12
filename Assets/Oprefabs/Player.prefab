@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7105389993361324795}
   - component: {fileID: 5169396918242274057}
   - component: {fileID: 9161093895358709281}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 9077344276600696567}
   - component: {fileID: 171429095298307076}
   - component: {fileID: 5287854482915328858}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -123,8 +123,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.00002621549, z: 0, w: 1}
   m_LocalPosition: {x: 7.659903e-11, y: 1, z: 4.650514}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7105389993361324795}
   - {fileID: 97985094153642317}
@@ -223,7 +223,7 @@ MonoBehaviour:
   GravityMod: 1.5
   walkingSpeed: 100
   runningSpeed: 180
-  sensitivity: 50
+  sensitivity: 200
   jumpForce: 15
   JumpObject: {fileID: 7239917910522706735}
   jumprad: 0.1
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 97985094153642317}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ Transform:
   m_GameObject: {fileID: 7239917910522706735}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -1.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

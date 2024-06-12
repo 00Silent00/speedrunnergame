@@ -2569,33 +2569,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 97985094153642317, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2078828176576647325, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5928436676545041915, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5928436676545041915, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169668875335224089, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169668875335224089, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169668875335224089, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7169668875335224089, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2636,14 +2612,6 @@ PrefabInstance:
     - target: {fileID: 7169668875335224089, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169668875335224089, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7239917910522706735, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4188,7 +4156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c4c2afdc261648418f8a03041d41d9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinSpeed: -200
+  spinSpeed: 10
 --- !u!136 &1862728045
 CapsuleCollider:
   m_ObjectHideFlags: 0
