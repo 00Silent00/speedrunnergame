@@ -8,6 +8,7 @@ TagManager:
   - spawnpoint
   - Stairs
   - spin
+  - lava
   layers:
   - Default
   - TransparentFX

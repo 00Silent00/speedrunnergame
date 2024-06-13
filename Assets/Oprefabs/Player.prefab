@@ -224,7 +224,7 @@ MonoBehaviour:
   walkingSpeed: 100
   runningSpeed: 180
   sensitivity: 200
-  jumpForce: 15
+  jumpForce: 7.5
   JumpObject: {fileID: 7239917910522706735}
   jumprad: 0.1
 --- !u!54 &5287854482915328858

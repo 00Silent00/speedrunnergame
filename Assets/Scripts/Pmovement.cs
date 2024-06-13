@@ -21,7 +21,7 @@ public class Pmovement : MonoBehaviour
     public float jumprad;
     float mousex;
     float mousey;
-    Vector3 spawnpoint;
+    public  Vector3 spawnpoint;
     // Start is called before the first frame update
     void Start()
     {

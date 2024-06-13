@@ -17,14 +17,9 @@ public class spin : MonoBehaviour
     }
 
     // Update is called once per frame
-    void fixeUpdateUpdate()
+    void FixedUpdate()
     {
-          Quaternion deltaRotation = Quaternion.Euler(EulerAngleVelocity * Time.fixedDeltaTime);
-
-          ObsticalRB.MoveRotation(ObsticalRB.rotation * deltaRotation);
-       
-         
-       
-       
+      ObsticalRB.AddTorque(Vector3.forward * spinSpeed * Time.deltaTime, ForceMode.Force);
+           
     }
 }
