@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Pmovement : MonoBehaviour
 {
+    private Animator anim;
     public Rigidbody RB;
     public float speed;
     public float HorizontalSpeed;
@@ -25,6 +26,7 @@ public class Pmovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         Physics.gravity *= GravityMod;
         spawnpoint = transform.position;
     }
@@ -37,7 +39,7 @@ public class Pmovement : MonoBehaviour
         VerticalSpeed = Input.GetAxis("Vertical");
         if (IsOnGround == false)
         {
-            speed = 0;
+            speed = 30;
         }else if(Input.GetKey(KeyCode.LeftShift))
         {
             speed = runningSpeed;
@@ -56,6 +58,11 @@ public class Pmovement : MonoBehaviour
         if (transform.position.y < -5)
         {
             transform.position = spawnpoint;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.SetTrigger("LungSpear");
         }
         
     }
