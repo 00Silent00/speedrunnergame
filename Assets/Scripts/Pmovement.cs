@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class Pmovement : MonoBehaviour
 {
-    private Animator anim;
+    [Header("Animation")]
+    public Animator anim;
+    [Header("resten")]
     public Rigidbody RB;
     public float speed;
     public float HorizontalSpeed;
@@ -23,9 +25,12 @@ public class Pmovement : MonoBehaviour
     float mousex;
     float mousey;
     public  Vector3 spawnpoint;
+    private bool canAttack = true;
+    public GameObject spear;
     // Start is called before the first frame update
     void Start()
     {
+        spear.gameObject.SetActive(false);
         anim = GetComponentInChildren<Animator>();
         Physics.gravity *= GravityMod;
         spawnpoint = transform.position;
@@ -34,12 +39,15 @@ public class Pmovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         Jumping();
         HorizontalSpeed = Input.GetAxis("Horizontal");
         VerticalSpeed = Input.GetAxis("Vertical");
         if (IsOnGround == false)
         {
-            speed = 30;
+            speed = 3;
         }else if(Input.GetKey(KeyCode.LeftShift))
         {
             speed = runningSpeed;
@@ -60,14 +68,22 @@ public class Pmovement : MonoBehaviour
             transform.position = spawnpoint;
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canAttack)
         {
             anim.SetTrigger("LungSpear");
+            canAttack = false;
+            StartCoroutine(IsAbleToAttack());
         }
         
     }
     void FixedUpdate()
     {}
+
+    IEnumerator IsAbleToAttack() 
+    {
+        yield return new WaitForSeconds (0.5f);
+        canAttack = true;
+    }
 
     void Jumping(){
         IsOnGround = false;
@@ -98,6 +114,11 @@ public class Pmovement : MonoBehaviour
         {
             spawnpoint = transform.position;
         }
+        if (other.gameObject.CompareTag("SpearGiver"))
+        {
+            spear.gameObject.SetActive(true);
+        }
     }
+
 
 }

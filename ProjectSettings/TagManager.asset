@@ -8,7 +8,7 @@ TagManager:
   - spawnpoint
   - Stairs
   - spin
-  - lava
+  - SpearGiver
   layers:
   - Default
   - TransparentFX
