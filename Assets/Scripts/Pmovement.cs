@@ -7,7 +7,8 @@ using UnityEngine;
 public class Pmovement : MonoBehaviour
 {
     [Header("Animation")]
-    public Animator anim;
+    public Animator spearanim;
+    public Animator enteranim;
     [Header("resten")]
     public Rigidbody RB;
     public float speed;
@@ -31,7 +32,6 @@ public class Pmovement : MonoBehaviour
     void Start()
     {
         spear.gameObject.SetActive(false);
-        anim = GetComponentInChildren<Animator>();
         Physics.gravity *= GravityMod;
         spawnpoint = transform.position;
     }
@@ -45,6 +45,7 @@ public class Pmovement : MonoBehaviour
         Jumping();
         HorizontalSpeed = Input.GetAxis("Horizontal");
         VerticalSpeed = Input.GetAxis("Vertical");
+        
         if (IsOnGround == false)
         {
             speed = 3;
@@ -60,8 +61,7 @@ public class Pmovement : MonoBehaviour
 
         mousex = Input.GetAxis("Mouse X");
         mousey = Input.GetAxis("Mouse Y");
-        transform.Rotate(0, mousex * Time.deltaTime * sensitivity, 0);
-        Debug.Log(RB.drag);
+        transform.Rotate(0, mousex * Time.unscaledDeltaTime * sensitivity, 0);
 
         if (transform.position.y < -5)
         {
@@ -70,10 +70,11 @@ public class Pmovement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
-            anim.SetTrigger("LungSpear");
+            spearanim.SetTrigger("LungSpear");
             canAttack = false;
             StartCoroutine(IsAbleToAttack());
         }
+    
         
     }
     void FixedUpdate()
@@ -117,8 +118,13 @@ public class Pmovement : MonoBehaviour
         if (other.gameObject.CompareTag("SpearGiver"))
         {
             spear.gameObject.SetActive(true);
+            enteranim.SetBool("PlayerEnter", true);
+            Debug.Log("Hit Trigger in door");
         }
     }
-
+    IEnumerator CancelAnim(){
+        yield return new WaitForSeconds(3);
+        enteranim.SetBool("PlayerEnter", false);
+    }
 
 }
