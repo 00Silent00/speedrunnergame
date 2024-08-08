@@ -28,6 +28,8 @@ public class Pmovement : MonoBehaviour
     public  Vector3 spawnpoint;
     private bool canAttack = true;
     public GameObject spear;
+    public bool InCombat;
+    private bool canMove = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,8 @@ public class Pmovement : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        if (canMove)
+        {
         Jumping();
         HorizontalSpeed = Input.GetAxis("Horizontal");
         VerticalSpeed = Input.GetAxis("Vertical");
@@ -73,7 +76,7 @@ public class Pmovement : MonoBehaviour
             spearanim.SetTrigger("LungSpear");
             canAttack = false;
             StartCoroutine(IsAbleToAttack());
-        }
+        }}
     
         
     }
@@ -120,11 +123,15 @@ public class Pmovement : MonoBehaviour
             spear.gameObject.SetActive(true);
             enteranim.SetBool("PlayerEnter", true);
             Debug.Log("Hit Trigger in door");
+            InCombat = true;
+            canMove = false;
+            StartCoroutine(CancelAnim());
         }
     }
     IEnumerator CancelAnim(){
         yield return new WaitForSeconds(3);
         enteranim.SetBool("PlayerEnter", false);
+        canMove = true;
     }
 
 }

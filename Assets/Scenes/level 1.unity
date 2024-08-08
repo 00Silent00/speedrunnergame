@@ -12889,6 +12889,10 @@ PrefabInstance:
       propertyPath: spear
       value: 
       objectReference: {fileID: 372406332}
+    - target: {fileID: 171429095298307076, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
+      propertyPath: enteranim
+      value: 
+      objectReference: {fileID: 1041150910}
     - target: {fileID: 1989648471684718042, guid: d98ed13cc6be2fb43b08379fb91df56c, type: 3}
       propertyPath: m_CullingMode
       value: 0
@@ -16019,7 +16023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1229272333
 Transform:
   m_ObjectHideFlags: 0
